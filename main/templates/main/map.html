@@ -1,0 +1,107 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+<script src='https://www.google.com/recaptcha/api.js?render={{recaptcha_site_key}}'></script>
+
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li style="display: block;margin-top: 20px; padding: 0px;"><a  href="{% url 'main:route' %}">Informations de l'usager</a></li>
+  
+  
+ 
+  <li style="display: block;margin-top: 0px; padding: 20px;margin-left: 80px;"><h2>Autonomie</h2> <br> <br>
+    <div class="col-size" style="width: 50%;text-align: center; font-size: 20px;
+    padding: 5% 0 0 0 !important;
+    background: #07b6998f;">
+    {{autonomie_soc_minimal}} minutes
+    </div>  
+<!--   
+  <li style="display: block;margin-top: 0px; padding: 20px;">:<br> {{autonomie_soc_minimal}} minutes</li>
+  <li style="display: block;margin-top: 20px; padding: 20px;"> -->
+    <!-- <div id="right-panel"></div>
+      <p>Total Distance: <span id="total"></span></p>
+    </div> -->
+    <!-- <div id="directions-panel"></div> -->
+    <!-- <div  >
+      <p>Total Distance: <span id="total"></span></p>
+    </div> -->
+     
+    <li style="display: block; padding: 20px;margin-left: 20px;"><h2>Scénarios de test<h2></li> 
+      <!-- <i>Sélectionner un scénario de test</i> <br /><br /> -->
+   
+     
+     <a  href="#" title="SOC 20%"><input  type="submit" class="button_active" id="scenarioTest" value="Scénario 1"></a> 
+    
+    
+    <a  href="#" title="Surconsommation de la batterie"><input  type="submit" class="button_active" value="Scénario 2"></a> 
+      
+    <a href="#" title="Mouvaise conduite"><input  type="submit" class="button_active" value="Scénario 3"></a>  
+  
+    <a  href="{% url 'main:contact' %}" title="SOC 20%"><input  type="submit" class="btn" id="sc " value="Espace admin"></a> 
+    <a  href="{% url 'main:station' %}" title="SOC 20%"><input  type="submit" class="btn" id="sc " value="Contactez-nous"></a>  
+   
+     
+  </l i > 
+  
+ 
+  <!-- <li style="display: block;margin-top: 0px; padding: 20px;">STATION :<span id="adr">{{serializer}}</span> </li> -->
+</ul> 
+  
+ 
+<!-- <img src='data:image/png;base64,{{ chart }}'> -->
+{% endblock %}
+
+
+{% block content %}
+
+<!-- <h3 id="map">Alertes/Recommandations</h3> -->
+
+<div class="container">
+  
+  </table>
+
+</div>
+
+<div class="map-container">
+  <p   id="listStations"> 
+   
+    {{serializer}} 
+    
+ 
+ </p> 
+   <div  id="map-route">
+   
+   </div>
+
+
+</div>
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+<script type="text/javascript">
+
+    var google_api_key = "{{google_api_key|safe}}";
+    var lat_a = "{{lat_a|safe}}";
+    var long_a ="{{long_a|safe}}";
+    var lat_b = "{{lat_a|safe}}";
+    var long_b = "{{long_b|safe}}";
+    var origin = "{{origin|safe}}";
+    var destination = "{{destination|safe}}";
+    // var directions = {{directions|safe}}
+
+  </script>
+
+  <script src="{% static 'google_maps.js' %}"></script>
+
+
+{% endblock %}

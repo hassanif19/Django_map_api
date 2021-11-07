@@ -1,0 +1,68 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FibroTex</title>
+        <link rel="stylesheet" href="{% static 'boostrap.min.css' %}"></link>
+   
+    </head>
+    <body>
+        <div class="container" style ="background-color:silver;" > 
+            <h3 class="mb-0" style="margin-top:70px;">Contactez-nous</h3> 
+        <form method="post" action="mailto:hassanif19@gmail.com">
+            {{ form.non_field_errors }}
+            <div class="row mb-2">
+                <div class="col-md-6" style="margin-top:40px;">
+                    <div class="col-sm-6" >
+                        {{ form.subject.errors }}
+                        <label for="{{form.subject.id_for_label}}" class="form-label">Nom:</label>
+                        <div> {{ form.subject }} </div>
+                        
+                        
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        {{ form.sender.errors }}
+                        <label for="{{ form.sender.id_for_label }}"  class="form-label">Email :</label>
+                        <div>
+                        {{ form.sender }}
+                        </div> 
+                    </div>
+                   
+                    <div class="col-sm-6">
+                        {{ form.message.errors }}
+                        <label for="{{ form.message.id_for_label }}"  class="form-label">Votre message :</label>
+                        <div>
+                        {{ form.message }}
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        {{ form.cc_myself.errors }}
+                        <label for="{{ form.cc_myself.id_for_label }}">Envoyer une copie à moi méme</label>
+                        {{ form.cc_myself }}
+                    </div>
+                    <input type="submit" value="Envoyer" />
+                </div>
+            </div>       
+        </form>    
+
+
+
+
+         
+
+              <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+              crossorigin="anonymous"></script>
+          <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+              integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+              crossorigin="anonymous"></script> 
+          <script> $('.carousel').carousel({  pause: "null"  })  </script>  
+           
+   </body>
+
+</html>
